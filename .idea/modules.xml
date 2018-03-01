@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/monitor-busi-user/monitor-busi-user.iml" filepath="$PROJECT_DIR$/monitor-busi-user/monitor-busi-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/monitor-common/monitor-common.iml" filepath="$PROJECT_DIR$/monitor-common/monitor-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent.iml" filepath="$PROJECT_DIR$/spring-cloud-parent.iml" />
+    </modules>
+  </component>
+</project>
