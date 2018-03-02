@@ -123,7 +123,7 @@ public class UserController {
     @RequestMapping(value="/users/{id}",method=RequestMethod.DELETE)
     @ResponseBody
     public Object delete(UserEntity userEntity){
-
-        return userEntityService.deleteEntity(userEntity);
+        ExectueResult exectueResult=userEntityService.deleteEntity(userEntity);
+        return exectueResult;
     }
 }
