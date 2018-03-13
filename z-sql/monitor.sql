@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-03-02 09:16:12
+Date: 2018-03-13 15:15:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -98,7 +98,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('28b0a40db68b41e69bf9e24242c54ee8', 'True', 'account', null, '支付的免费', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `users` VALUES ('28b0a40db68b41e69bf9e24242c54ee8', 'True', 'qiangge', '', '哥', null, 'WOMAN', null, '12', null, null, null, null, '2018-03-09 11:13:03', '1', '假');
 INSERT INTO `users` VALUES ('2bb3f24d9a3c403abcad0688a02ca4d4', 'True', 'account1', null, '支付的免费1', null, null, null, null, null, '2018-02-28 09:20:17', '1', '假', '2018-02-28 09:20:17', '1', '假');
 INSERT INTO `users` VALUES ('6a00cfd31d4749a9ab889114a1eb6d4a', 'False', 'tchtch', 'tch', 'tch1', null, null, null, '123', null, '2018-03-01 14:41:21', '1', '假', '2018-03-02 09:13:59', '1', '假');
 INSERT INTO `users` VALUES ('6bcb01a8ef73431c9a2af53008098981', 'True', 'szm', '1', '孙志明', 'creditnum', null, '2018-02-27 14:48:28', '123456', null, null, null, null, null, null, null);
@@ -107,5 +107,5 @@ INSERT INTO `users` VALUES ('c8d9afe8cdd84465ad312f8519668b3e', 'True', 'account
 INSERT INTO `users` VALUES ('d79a2dfbb1644ecc9d0ada80e9af5c63', 'True', null, null, '支付的免费1', null, null, null, null, null, '2018-02-28 15:45:14', '1', '假', '2018-02-28 15:45:14', '1', '假');
 INSERT INTO `users` VALUES ('df40683409704189962a51007c6b7a6a', 'True', 'account', null, '支付的免费', null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `users` VALUES ('f54e928bb62043d9a7df892cd9dc862d', 'True', 'account', null, '支付的免费', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `users` VALUES ('fb42646307a844bebde5d187f1fa170a', 'True', 'True', null, 'true1', null, null, null, null, null, null, null, null, '2018-03-01 10:55:57', '1', '假');
+INSERT INTO `users` VALUES ('fb42646307a844bebde5d187f1fa170a', 'False', 'True', null, 'true1', null, null, null, null, null, null, null, null, '2018-03-02 14:33:46', '1', '假');
 INSERT INTO `users` VALUES ('fbeacd1e42c54841a99f1da7d91cf970', 'True', 'account1', null, '支付的免费1', null, null, null, null, null, null, null, null, null, null, null);
