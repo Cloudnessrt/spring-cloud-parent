@@ -35,9 +35,10 @@
         <tbody>
         <tr  th:each="user : ${page.list}">
             <th scope="row" th:text="${user.id}"></th>
+            <td th:text="${user.isValidName}"></td>
             <td th:text="${user.name}"></td>
-            <td th:text="${user.account}"></td>
-            <td><a th:href="@{/toEdit/{id}(id=${user.id})}">edit</a></td>
+           <!-- <td th:text="${user.account}"></td>-->
+            <td><a th:href="@{/handle/{id}(id=${user.id})}">edit</a></td>
             <td><a class="delete" th:href="@{/users/{id}(id=${user.id})}">delete</a></td>
         </tr>
         </tbody>
@@ -45,7 +46,7 @@
 </div>
 <div class="form-group">
     <div class="col-sm-2 control-label">
-        <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">add</a>
+        <a href="/toAdd" th:href="@{/users/handle}" class="btn btn-info">add</a>
     </div>
     <form id="deleteForm" action="" method="POST">
         <input type="hidden" name="_method" value="DELETE"/>

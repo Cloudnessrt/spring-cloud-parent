@@ -3,10 +3,7 @@ package com.tomorrow.monitorbusi.Dao.Mapper.User;
 import com.github.pagehelper.Page;
 import com.tomorrow.common.monitorcommon.Entity.UserEntity;
 import com.tomorrow.monitorbusi.VO.Auth.UserVo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;

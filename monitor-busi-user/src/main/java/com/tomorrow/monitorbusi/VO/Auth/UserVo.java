@@ -13,6 +13,20 @@ import java.util.Date;
  * @CREATE 2018-02-28
  **/
 public class UserVo {
+    @Override
+    public String toString() {
+        return "UserVo{" +
+                "id='" + id + '\'' +
+                ", account='" + account + '\'' +
+                ", MD5='" + MD5 + '\'' +
+                ", name='" + name + '\'' +
+                ", creditNum='" + creditNum + '\'' +
+                ", sexEnum=" + sexEnum +
+                ", birthday=" + birthday +
+                ", companyId='" + companyId + '\'' +
+                ", useEnum=" + useEnum +
+                '}';
+    }
 
     private String id;
 

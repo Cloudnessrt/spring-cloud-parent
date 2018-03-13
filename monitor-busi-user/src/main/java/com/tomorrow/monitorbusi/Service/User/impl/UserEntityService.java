@@ -7,10 +7,15 @@ import com.tomorrow.common.monitorcommon.Enum.impl.ValidEnum;
 import com.tomorrow.common.monitorcommon.VO.ExectueResult;
 import com.tomorrow.common.monitorcommon.VO.PageInfo;
 import com.tomorrow.monitorbusi.Dao.Mapper.User.IUserMapper;
+import com.tomorrow.monitorbusi.Redis.RedisLockAnnotation;
 import com.tomorrow.monitorbusi.Service.User.IUserEntityService;
 import com.tomorrow.monitorbusi.VO.Auth.UserVo;
+import com.tomorrow.monitorbusi.VO.test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -65,6 +70,7 @@ public class UserEntityService implements IUserEntityService {
      * @param entity 实体
      * @return 反馈
      */
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class,noRollbackFor ={} )
     public ExectueResult updateEntity( UserEntity entity){
         ExectueResult result=judgeDataValid(entity);//唯一性判断
         if(result.isResult()){
@@ -79,6 +85,7 @@ public class UserEntityService implements IUserEntityService {
      * @param entity 删除实体
      * @return 反馈
      */
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class)
     public ExectueResult deleteEntity(UserEntity entity){
         entity.setValid(ValidEnum.False);
         return updateEntity(entity);
@@ -89,6 +96,7 @@ public class UserEntityService implements IUserEntityService {
      * @param entity 实体
      * @return 反馈
      */
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class)
     public ExectueResult insertEntity(UserEntity entity){
         ExectueResult result=judgeDataValid(entity);//唯一性判断
         if(result.isResult()){
@@ -125,4 +133,18 @@ public class UserEntityService implements IUserEntityService {
         }
 
     }
+
+    @RedisLockAnnotation(lockedPrefix="TEST_PREFIX")
+   public void secKill(String arg1,  Long arg2) {
+        //最简单的秒杀，这里仅作为demo示例
+        reduceInventory(arg2);
+
+    }
+    //模拟秒杀操作，姑且认为一个秒杀就是将库存减一，实际情景要复杂的多
+    public Long reduceInventory(Long commodityId){
+        test.inventory.put(commodityId,test.inventory.get(commodityId) - 1);
+        return test.inventory.get(commodityId);
+    }
+
+
 }

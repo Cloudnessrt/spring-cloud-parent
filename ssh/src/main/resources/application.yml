@@ -1,0 +1,51 @@
+#项目名
+server:
+  context-path: /ssh
+  port: 8768
+#服务提供
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: ssh
+  devtools:
+    restart:
+      enabled: true
+      trigger-file: devtools.tg
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/monitor?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 1234
+  aop:
+    auto: true
+    proxy-target-class: false
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML5
+    content-type: text/html
+#数据库
+mybatis:
+  type-aliases-package: com.tomorrow.monitorbusi.Entity
+
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#logging
+debug: true
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
+    com:
+      tomorrow:
+        ssh: debug

@@ -9,13 +9,18 @@
         <module name="monitor-busi-user" />
         <module name="monitor-common" />
         <module name="monitorbusi" />
+        <module name="service-center" />
+        <module name="ssh" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="monitor-busi" target="1.8" />
       <module name="monitor-busi-user" target="1.8" />
       <module name="monitor-common" target="1.8" />
       <module name="monitorbusi" target="1.8" />
+      <module name="service-center" target="1.8" />
       <module name="spring-cloud-parent" target="1.8" />
+      <module name="ssh" target="1.8" />
       <module name="user-auth" target="1.8" />
     </bytecodeTargetLevel>
   </component>

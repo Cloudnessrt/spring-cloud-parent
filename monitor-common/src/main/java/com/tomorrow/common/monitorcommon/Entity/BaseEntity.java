@@ -15,18 +15,26 @@ import java.util.UUID;
  **/
 public class BaseEntity implements Serializable {
     private static final long serivalVersionUID=1L;
-
+    //主键
     private String id;
+    //创建时间
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss.SSSZ")
     private Date createDate;
+    //最后修改时间
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss.SSSZ")
     private Date lastChangeDate;
+    //创建人名
     private String createUserName;
+    //创建人
     private String createUser;
+    //最后修改人名
     private String lastChangeUserName;
+    //最后修改人
     private String lastChangeUser;
+    //数据有效性（假删除字段）
     private ValidEnum isValid;
-
+    //数据有效性描述 虚拟列
+    private String isValidName;
     /**
      * 构造函数 生成主键
      */
@@ -104,5 +112,40 @@ public class BaseEntity implements Serializable {
 
     public void setValid(ValidEnum valid) {
         isValid = valid;
+    }
+
+    public String getCreateUserName() {
+        return createUserName;
+    }
+
+    public void setCreateUserName(String createUserName) {
+        this.createUserName = createUserName;
+    }
+
+    public String getLastChangeUserName() {
+        return lastChangeUserName;
+    }
+
+    public void setLastChangeUserName(String lastChangeUserName) {
+        this.lastChangeUserName = lastChangeUserName;
+    }
+
+    public ValidEnum getIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(ValidEnum isValid) {
+        this.isValid = isValid;
+    }
+
+    public String getIsValidName() {
+        if(isValid!=null){
+            return isValid.getText();
+        }
+        return null;
+    }
+
+    public void setIsValidName(String isValidName) {
+
     }
 }

@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/monitor-busi-user/monitor-busi-user.iml" filepath="$PROJECT_DIR$/monitor-busi-user/monitor-busi-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/monitor-common/monitor-common.iml" filepath="$PROJECT_DIR$/monitor-common/monitor-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-center/service-center.iml" filepath="$PROJECT_DIR$/service-center/service-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent.iml" filepath="$PROJECT_DIR$/spring-cloud-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssh/ssh.iml" filepath="$PROJECT_DIR$/ssh/ssh.iml" />
     </modules>
   </component>
 </project>

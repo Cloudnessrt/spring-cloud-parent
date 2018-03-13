@@ -21,9 +21,9 @@ public class EnumUtil {
      * @param en 枚举
      * @return
      */
-    public static Map<Integer, String> enumToMap(Enum en){
+    public static Map<Enum, String> enumToMap(Enum en){
         Class clazz = en.getDeclaringClass();
-        LinkedHashMap<Integer, String> map = new LinkedHashMap<Integer, String>();
+        LinkedHashMap<Enum, String> map = new LinkedHashMap<Enum, String>();
         //实现了枚举接口和是枚举类型
         if(typeCheck( clazz)){
             try {
@@ -32,7 +32,7 @@ public class EnumUtil {
                 //得到enum的所有实例
                 Object[] objs = clazz.getEnumConstants();
                 for (Object obj : objs) {
-                    map.put((Integer)getKey.invoke(obj),(String)getText.invoke(obj));
+                    map.put( (Enum) obj,(String)getText.invoke(obj));
                 }
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
@@ -69,7 +69,6 @@ public class EnumUtil {
         }
         return null;
     }
-
 
 
     /**

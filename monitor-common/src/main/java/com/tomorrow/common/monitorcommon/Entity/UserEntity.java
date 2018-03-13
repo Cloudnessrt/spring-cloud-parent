@@ -31,6 +31,9 @@ public class UserEntity extends BaseEntity {
     private String creditNum;
     //性别
     private SexEnum sexEnum;
+    //性别的描述列 虚拟的
+    private String sexEnumName;
+
     //生日
     private Date birthday;
     //公司号
@@ -40,6 +43,8 @@ public class UserEntity extends BaseEntity {
 
     //使用状态
     private UseEnum useEnum;
+    //使用状态的描述列 虚拟的
+    private String useEnumName;
 
     public String getAccount() {
         return account;
@@ -109,4 +114,25 @@ public class UserEntity extends BaseEntity {
         super();
     }
 
+    public String getSexEnumName() {
+        if(sexEnum!=null){
+            return sexEnum.getText();
+        }
+        return null;
+    }
+
+    public void setSexEnumName(String sexEnumName) {
+
+    }
+
+    public String getUseEnumName() {
+        if(useEnum!=null){
+            return useEnum.getText();
+        }
+        return null;
+    }
+
+    public void setUseEnumName(String useEnumName) {
+
+    }
 }
