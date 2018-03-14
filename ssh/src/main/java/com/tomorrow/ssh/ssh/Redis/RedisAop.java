@@ -1,6 +1,7 @@
 package com.tomorrow.ssh.ssh.Redis;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tomorrow.ssh.ssh.VO.test;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -17,6 +18,7 @@ import redis.clients.jedis.JedisCluster;
 import java.lang.reflect.Method;
 
 /**
+ * redis的aop
  * @AUTHOR TCH
  * @CREATE 2018-03-06
  **/
@@ -29,12 +31,22 @@ public class RedisAop {
     @Autowired
     private JedisCluster jedisCluster;
 
+    /**
+     * redis集群 缓存读取aop切面
+     */
     @Pointcut("@annotation( com.tomorrow.ssh.ssh.Redis.RedisCacheAble)")// 定义注解类型的切点，只要方法上有该注解，都会匹配
     public void annotationAble() {
 
     }
 
-    @Around("annotationAble()&& @annotation(rd)") //定义注解的具体实现，以及能够接受注解对象，定义 @annotation(rd)就可以直接取到annotation的实例了
+    /**
+     * redis集群 缓存读取aop切面
+     * @param joinPoint 连接点
+     * @param rd 注解类
+     * @return
+     * @throws Throwable
+     */
+    @Around("annotationAble()&& @annotation(rd)")
     public Object redisCacheAble(ProceedingJoinPoint joinPoint, RedisCacheAble rd) throws Throwable {
         String preKey = rd.value();
         String arg0 = joinPoint.getArgs()[0].toString();
@@ -60,7 +72,7 @@ public class RedisAop {
         // 如果values没有值，那么redis对应的value为输入对象；否则根据输入参数重新生成对象
         if (rd.names().length==0) {
             // 存入目标对象
-            jedisCluster.set(key, JSON.toJSONString(sourceObject) );
+            jedisCluster.set(key, JSON.toJSONString(sourceObject, SerializerFeature.WRITE_MAP_NULL_FEATURES) );
             jedisCluster.expire(key, rd.timeout());
         } else {
             /*todo*/
@@ -69,15 +81,18 @@ public class RedisAop {
     }
 
 
+    /**
+     * redis集群 分布式锁 切面
+     */
     @Pointcut("@annotation( com.tomorrow.ssh.ssh.Redis.RedisLockAnnotation)")// 定义注解类型的切点，只要方法上有该注解，都会匹配
     public void annotationLock() {
 
     }
 
     /**
-     *
-     * @param joinPoint
-     * @param rl
+     * redis集群 分布式锁实现
+     * @param joinPoint 连接点
+     * @param rl 注解参数
      * @return
      * @throws Exception
      */
@@ -102,6 +117,7 @@ public class RedisAop {
         boolean result = lock.lock(rl.timeOut(), rl.expireTime());
         if(!result){//取锁失败
             test.error++;
+            throw new Exception("error");
         }
         try{
             //加锁成功，执行方法

@@ -18,7 +18,7 @@
 </head>
 <body class="container">
 <br/>
-<h1>用户列表 <a th:href="@{/js/jquery-1.9.1.min.js}">js</a></h1>
+<h1>用户列表 </h1>
 <br/><br/>
 <div class="with:80%">
     <table class="table table-hover">
@@ -37,7 +37,7 @@
             <th scope="row" th:text="${user.id}"></th>
             <td th:text="${user.isValidName}"></td>
             <td th:text="${user.name}"></td>
-           <!-- <td th:text="${user.account}"></td>-->
+            <td th:text="${user.account}"></td>
             <td><a th:href="@{/handle/{id}(id=${user.id})}">edit</a></td>
             <td><a class="delete" th:href="@{/users/{id}(id=${user.id})}">delete</a></td>
         </tr>

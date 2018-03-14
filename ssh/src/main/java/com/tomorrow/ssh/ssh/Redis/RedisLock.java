@@ -5,7 +5,7 @@ import redis.clients.jedis.JedisCluster;
 import java.util.Random;
 
 /**
- * redis分布式锁
+ * redis分布式集群锁 实现
  *
  * @AUTHOR TCH
  * @CREATE 2018-03-09

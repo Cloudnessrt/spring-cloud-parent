@@ -177,6 +177,11 @@ public class UserController {
         return exectueResult;
     }
 
+
+    /**
+     * 1000线程并发测试redis分布式集群锁
+     * @return
+     */
     @RequestMapping(value="/testSecKill",method=RequestMethod.GET)
     @ResponseBody
     public Object testSecKill() {

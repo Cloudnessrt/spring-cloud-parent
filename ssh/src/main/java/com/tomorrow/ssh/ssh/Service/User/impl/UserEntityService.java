@@ -7,6 +7,7 @@ import com.tomorrow.common.monitorcommon.Enum.impl.ValidEnum;
 import com.tomorrow.common.monitorcommon.VO.ExectueResult;
 import com.tomorrow.common.monitorcommon.VO.PageInfo;
 import com.tomorrow.ssh.ssh.Dao.Mapper.User.IUserMapper;
+import com.tomorrow.ssh.ssh.Redis.RedisCacheAble;
 import com.tomorrow.ssh.ssh.Redis.RedisLockAnnotation;
 import com.tomorrow.ssh.ssh.Service.User.IUserEntityService;
 import com.tomorrow.ssh.ssh.VO.Auth.UserVo;
@@ -39,6 +40,7 @@ public class UserEntityService implements IUserEntityService {
      * @param userEntity 查询实体
      * @return 分页
      */
+    @RedisCacheAble(value ="user" )
     public PageInfo<UserEntity> getPage(PageInfo pageInfo, UserVo userEntity){
         //设置分页信息，分别是当前页数和每页显示的总记录数【记住：必须在mapper接口中的方法执行之前设置该分页信息】
         PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
