@@ -1,4 +1,4 @@
 server:
   port: 19003
 configtest:
-  test: 1234
+  test: 12345
