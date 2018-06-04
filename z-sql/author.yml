@@ -1,4 +1,3 @@
-server:
-  port: 19003
+
 configtest:
   test: 123456
